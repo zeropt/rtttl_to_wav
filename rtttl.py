@@ -1,5 +1,6 @@
 import numpy as np
 from scipy.io import wavfile
+import os
 
 frequencies = {
     'c' : 16.35,
@@ -95,11 +96,13 @@ class RTTTL:
             localarray = np.concatenate((localarray, np.zeros(len(self.soundarray)-len(localarray))))
         self.soundarray = np.add(self.soundarray, localarray)
 
-    def exportWAV(self, filename):
-        wavfile.write(filename, self.samplerate, self.soundarray)
-
-    def exportWAV(self):
-        wavfile.write(f'{self.name}.wav', self.samplerate, self.soundarray)
+    def exportWAV(self, filename = ''):
+        if not os.path.exists('output'):
+            os.makedirs('output')
+        if filename: #if the filename is not empty
+            wavfile.write(f'output/{filename}', self.samplerate, self.soundarray)
+        else: #use the builtin name
+            wavfile.write(f'output/{self.name}.wav', self.samplerate, self.soundarray)
 
     def __str__(self):
         return f'RTTTL {self.text} at a {self.samplerate}Hz samplerate and {self.volume} volume'
@@ -111,4 +114,4 @@ if __name__ == '__main__':
     print('running test')
     txt = "IronMan:d=4,o=5,b=80:b4,d,8d,8e,8e,8p,16g,16f#,16g,16f#,16g,16f#,8d,8d,8e,8e"
     my_tune = RTTTL(txt)
-    my_tune.exportWAV('rtttl_test.wav')
+    my_tune.exportWAV('test.wav')
