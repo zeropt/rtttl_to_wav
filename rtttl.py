@@ -62,6 +62,10 @@ class RTTTL:
             note = note.strip().lower()
             note_dur = default_dur
             note_oct = default_oct
+            dotted = False
+            if '.' in note: #if it's a dotted note, set dotted True and remove the period
+                dotted = True
+                note = note[:-1]
             if 'p' in note:
                 #pause
                 if note[:-1]: #specified duration
@@ -85,6 +89,8 @@ class RTTTL:
                     note_oct = int(note[key_i+len(key_str):])
                 #array time
                 duration = 240/(default_bpm*note_dur)
+                if dotted:
+                    duration *= 1.5
                 frequency = frequencies[key_str]*2**note_oct
                 t = np.linspace(0, duration, int(self.samplerate*duration))
                 tone = self.volume*np.sin(frequency * 2*np.pi * t)
@@ -100,9 +106,9 @@ class RTTTL:
         if not os.path.exists('output'):
             os.makedirs('output')
         if filename: #if the filename is not empty
-            wavfile.write(f'output/{filename}', self.samplerate, self.soundarray)
+            wavfile.write(f'{filename}', self.samplerate, self.soundarray)
         else: #use the builtin name
-            wavfile.write(f'output/{self.name}.wav', self.samplerate, self.soundarray)
+            wavfile.write(f'{self.name}.wav', self.samplerate, self.soundarray)
 
     def __str__(self):
         return f'RTTTL {self.text} at a {self.samplerate}Hz samplerate and {self.volume} volume'
