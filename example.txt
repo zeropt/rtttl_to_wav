@@ -1,0 +1,4 @@
+FoxOnTheRun:d=4,o=5,b=230:b5,g#5,e5,b5,g#5,e5,b5,g#5,f#6,d6,2a5,e6,c#6,2a5
+FoxOnTheRun:d=4,o=5,b=230:b4,b4,b4,b4,b4,b4,b4,b4,f#5,f#5,2f#5,c#5,c#5,2c#5
+FoxOnTheRun:d=4,o=5,b=230:b5,g#5,e5,b5,g#5,e5,b5,g#5,f#6,d6,2a5,e6,c#6,2a5
+FoxOnTheRun:d=4,o=5,b=230:e4,e4,e4,e4,e4,e4,e4,e4,d4,d4,2d4,a4,a4,2a4
