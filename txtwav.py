@@ -12,6 +12,7 @@ def main():
         print(f'\t{sys.argv[0]} <inputfile> <outputfile>')
         sys.exit()
 
+    #Read input file
     inputfile = open(sys.argv[1], "r")
     lines = inputfile.read()
 
@@ -22,6 +23,7 @@ def main():
     tune = rtttl.RTTTL(lines)
     outputfile = ''
 
+    #produce name for output file
     if len(sys.argv) == 2:
         if not os.path.exists('output'):
             os.makedirs('output')
@@ -32,6 +34,7 @@ def main():
         print(f'Incorrect number of arguments, try:\n\t{sys.argv[0]} -h')
         sys.exit()
 
+    #export .wav file
     tune.exportWAV(outputfile)
 
     if debug:
