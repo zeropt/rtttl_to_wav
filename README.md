@@ -1,6 +1,6 @@
 # RTTTL to wav file
 
-I wrote this program to playback music writting in **Ring Tone Text Transfer Language**(RTTTL) by converting the notes into square waves that are then written to a WAV file. I was then able to play it back using Audacity. RTTTL is the same format used by the bluejay melody editor for BLHeli_S ESCs. The bluejay repository can be found [here](https://github.com/mathiasvr/bluejay).
+I wrote this program to playback music writing in **Ring Tone Text Transfer Language**(RTTTL) by converting the notes into square waves that are then written to a WAV file. I was then able to play it back using Audacity. RTTTL is the same format used by the bluejay melody editor for BLHeli_S ESCs. The bluejay repository can be found [here](https://github.com/mathiasvr/bluejay).
 
 This is one of my first attempts at python programming. The packages I used can be installed using the requirements.txt file.
 ```
